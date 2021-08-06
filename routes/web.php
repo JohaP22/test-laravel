@@ -47,3 +47,12 @@ Route::get('user/{name}', function ($name) {
 })->where(['name' => '[-\w]+']);
 
 Route::get('presentation', 'UserController@userPresentation');
+Route::get('only', 'OnlyController');
+Route::get('users', function(){
+    $users = [
+        'Juana',
+        'Marcos',
+        'Amaia'
+    ];
+    return view('users', compact('users'));
+});
