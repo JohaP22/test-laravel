@@ -25,15 +25,25 @@ Route::get('/parametros/{params}', function ($params) {
     return "Prueba de url con parametros: {$params}";
 });
 
+Route::get('saludo/{name}/{nickname?}', function ($name, $nickname = null) {
+    if ($nickname) {
+        return "Bienvenido {$name}, tu apodo es {$nickname}";
+    } else {
+        return "Bienvenido {$name}, no tienes apodo";
+    }
+});
+
 //Filtros con rutas
 Route::get('user/{id}', function ($id) {
-    return $id;
-})->where(['id' => '[\d]+']); 
+    return "El slug manejado es numerico, con id: {$id}";
+})->where(['id' => '[\d]+']);
 
-Route::get('user/{slug}', function ($slug) { 
-    return $slug; 
-})->where(['slug' => 'create|delete|update']); 
+Route::get('user/{slug}', function ($slug) {
+    return "El slug manejado es de opciones, seleccionada: {$slug}";
+})->where(['slug' => 'create|delete|update']);
 
 Route::get('user/{name}', function ($name) {
-    return $name;
-})->where(['name' => '[-\w]+']); 
+    return "El slug manejado es alfanumerico, con nombre: {$name}";
+})->where(['name' => '[-\w]+']);
+
+Route::get('presentation', 'UserController@userPresentation');

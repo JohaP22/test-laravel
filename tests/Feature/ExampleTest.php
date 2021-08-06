@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    /** @test */
+    function test_users()
+    {
+        $this->get('/usuarios')
+            ->assertStatus(200)
+            ->assertSee('Usuarios');
+    }
 }
