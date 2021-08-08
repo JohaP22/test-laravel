@@ -14,8 +14,10 @@ class ProfessionSeed extends Seeder
     {
 
         DB::table('professions')->insert([
-            'id'=>2,
-            'description'=>'Developer'
+            'description'=>'Developer FrontEnd'
         ]);
+        $profession = DB::table('professions')->where('description','LIKE','Developer FrontEnd');
+
+        
     }
 }

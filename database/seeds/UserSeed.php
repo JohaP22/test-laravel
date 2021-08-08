@@ -16,9 +16,14 @@ class UserSeed extends Seeder
     {
         DB::table('users')->insert([
             'name'=>'Joha',
-            'email'=> 'hello@gmail.com',
+            'email'=> 'er@gmail.com',
             'password'=>bcrypt('Hola'),
-            'profession_id'=>1
+            'profession_id'=>2
         ]);
+        // DB::table('users')->where('name', 'LIKE', '%Joha%')->delete();
+        // DB::table('users')
+        //       ->where('id', 1)
+        //       ->update(['profession_id' => 1]);
+
     }
 }
