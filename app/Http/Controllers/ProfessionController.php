@@ -9,7 +9,7 @@ class ProfessionController extends Controller
 {
    public function professionList(){
        $profession = Profession::findByDescrip('Developer FrontEnd');
-       dd($profession);
+    //    dd($profession);
        return view('profession', compact('profession'));
    }
 }
