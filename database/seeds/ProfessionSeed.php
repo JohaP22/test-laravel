@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Profession;
 
 class ProfessionSeed extends Seeder
 {
@@ -16,8 +17,13 @@ class ProfessionSeed extends Seeder
         DB::table('professions')->insert([
             'description'=>'Developer FrontEnd'
         ]);
-        $profession = DB::table('professions')->where('description','LIKE','Developer FrontEnd');
+        DB::table('professions')->where('description','LIKE','Developer FrontEnd');
 
-        
+        Profession::create([
+            'description'=>'Developer Backend'
+        ]);
+        $professions = Profession::all(); 
+        $professionId = Profession::where('description', 'Desarrollador Backend')->value('id');
+
     }
 }

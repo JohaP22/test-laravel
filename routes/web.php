@@ -56,3 +56,4 @@ Route::get('users', function(){
     ];
     return view('users', compact('users'));
 });
+Route::get('profession', 'ProfessionController@professionList');
